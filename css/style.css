@@ -126,3 +126,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 }
 
 footer { background-color: var(--black); color: var(--white); text-align: center; padding: 40px 20px; margin-top: auto; }
+/* Viết ở tận cùng file style.css */
+@media screen and (max-width: 768px) {
+    /* Code chỉnh kích thước chữ, ảnh, bố cục cho điện thoại ở đây */
+}
