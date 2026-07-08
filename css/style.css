@@ -23,43 +23,30 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .logo-img { max-height: 80px; width: auto; display: inline-block; vertical-align: middle; }
 
 /* --- ICON TÌM KIẾM MỞ RỘNG MƯỢT MÀ --- */
-.search-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.search-icon {
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
-    color: var(--black);
-    z-index: 2;
-}
-.search-input {
-    width: 30px; /* Bằng với kích thước icon để giấu đi */
-    padding: 5px;
-    border: none;
-    border-bottom: 1px solid transparent;
-    background: transparent;
-    outline: none;
-    transition: width 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
-    font-size: 14px;
-    color: transparent;
-}
-.search-input:focus {
-    width: 200px;
-    padding: 5px 30px 5px 10px;
-    border-bottom: 1px solid var(--black);
-    color: var(--black);
-}
+.search-wrapper { position: relative; display: flex; align-items: center; justify-content: flex-end; }
+.search-icon { position: absolute; right: 5px; cursor: pointer; color: var(--black); z-index: 2; }
+.search-input { width: 30px; padding: 5px; border: none; border-bottom: 1px solid transparent; background: transparent; outline: none; transition: width 0.4s ease, border-color 0.4s ease, padding 0.4s ease; font-size: 14px; color: transparent; }
+.search-input:focus { width: 200px; padding: 5px 30px 5px 10px; border-bottom: 1px solid var(--black); color: var(--black); }
 .search-input::placeholder { color: transparent; }
 .search-input:focus::placeholder { color: #999; }
 
+/* --- HAMBURGER MENU (MỚI) --- */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+.hamburger span { width: 25px; height: 3px; background-color: var(--black); transition: all 0.3s ease; }
+.mobile-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--white); border-bottom: 1px solid var(--gray-light); padding: 20px 5%; box-shadow: 0 4px 6px rgba(0,0,0,0.05); z-index: 99; }
+.mobile-menu a { padding: 15px 0; font-weight: 600; text-transform: uppercase; border-bottom: 1px solid var(--gray-light); }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu.active { display: flex; animation: fadeIn 0.3s ease; }
+
+/* Hiệu ứng chéo chữ X cho Hamburger khi mở */
+.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 /* --- HERO & PRODUCT GRID --- */
-.hero { height: 85vh; background: url("../5c92a92c-b62f-4a38-9a10-19e65dd4f1a5.png") center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative; }
+.hero { height: 85vh; background: url('5c92a92c-b62f-4a38-9a10-19e65dd4f1a5.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative; }
 .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); }
-.hero-content { position: relative; z-index: 1; text-align: center; color: var(--white); }
+.hero-content { position: relative; z-index: 1; text-align: center; color: var(--white); padding: 0 20px; }
 .hero-content h1 { font-size: 4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
 .btn { display: inline-block; padding: 15px 40px; background-color: var(--white); color: var(--black); font-weight: 600; text-transform: uppercase; border: 1px solid var(--white); cursor: pointer; transition: all 0.3s; text-align: center; }
 .btn:hover { background-color: var(--black); color: var(--white); border-color: var(--black); }
@@ -75,7 +62,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 
 /* --- CUSTOMIZATION PAGE --- */
 .custom-layout { display: flex; min-height: calc(100vh - 80px); }
-.custom-preview { flex: 1; background-color: var(--gray-light); display: flex; align-items: center; justify-content: center; }
+.custom-preview { flex: 1; background-color: var(--gray-light); display: flex; align-items: center; justify-content: center; padding: 20px; }
 .custom-preview img { width: 60%; max-width: 500px; }
 .custom-controls { width: 400px; padding: 40px; background-color: var(--white); border-left: 1px solid var(--gray-light); overflow-y: auto; }
 .control-group { margin-bottom: 30px; }
@@ -87,7 +74,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .pattern-box { width: 75px; height: 60px; background-color: var(--gray-light); border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; cursor: pointer; text-align: center; padding: 5px; text-transform: uppercase; }
 .pattern-box:hover, .pattern-box.active { border-color: var(--burgundy); color: var(--burgundy); background-color: var(--white); }
 
-/* --- ACCOUNT PAGE --- */
+/* --- ACCOUNT & CART PAGES --- */
 .account-box { max-width: 450px; width: 100%; margin: 80px auto; padding: 40px; border: 1px solid var(--gray-light); }
 .account-box h2 { text-align: center; text-transform: uppercase; font-weight: 800; margin-bottom: 30px; }
 .form-group { margin-bottom: 20px; }
@@ -95,7 +82,6 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .form-control { width: 100%; padding: 12px; border: 1px solid #ccc; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: 0.3s; }
 .form-control:focus { border-color: var(--black); }
 
-/* --- GIỎ HÀNG & THANH TOÁN (MỚI) --- */
 .cart-page-wrapper { display: flex; max-width: 1100px; margin: 50px auto; gap: 50px; padding: 0 5%; min-height: 55vh; }
 .cart-left { flex: 1.5; }
 .cart-right { flex: 1; }
@@ -107,26 +93,39 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .item-info p { font-size: 13px; color: var(--gray-dark); }
 .summary-line { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; }
 .summary-total { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem; margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; }
-
-/* Form thanh toán ẩn */
 .checkout-form { display: none; animation: fadeIn 0.4s ease; }
 .checkout-form h2 { text-transform: uppercase; font-size: 1.5rem; border-bottom: 2px solid var(--black); padding-bottom: 10px; margin-bottom: 20px; }
 .payment-methods { margin-top: 20px; }
 .payment-methods label { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 14px; cursor: pointer; border: 1px solid #ddd; padding: 15px; transition: 0.3s; }
 .payment-methods label:hover { border-color: var(--black); }
-
-/* Thông báo thành công ẩn */
 .success-message { display: none; text-align: center; padding: 50px 20px; animation: fadeIn 0.4s ease; }
 .success-message h2 { font-size: 2rem; color: #2e7d32; margin: 20px 0 10px; text-transform: uppercase; }
 .success-message p { color: var(--gray-dark); }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 footer { background-color: var(--black); color: var(--white); text-align: center; padding: 40px 20px; margin-top: auto; }
-/* Viết ở tận cùng file style.css */
-@media screen and (max-width: 768px) {
-    /* Code chỉnh kích thước chữ, ảnh, bố cục cho điện thoại ở đây */
+
+/* =========================================
+   --- RESPONSIVE & MOBILE OPTIMIZATION --- 
+   ========================================= */
+@media (max-width: 850px) {
+    /* Header & Nav */
+    .nav-left, .nav-right { display: none; } /* Ẩn menu ngang trên máy tính */
+    .hamburger { display: flex; } /* Hiện nút hamburger */
+    .logo-center { width: auto; flex: 1; text-align: center; }
+    
+    /* Hero Section */
+    .hero-content h1 { font-size: 2.5rem; letter-spacing: 2px; }
+    
+    /* Căn chỉnh lại Customization Page */
+    .custom-layout { flex-direction: column; }
+    .custom-preview img { width: 80%; }
+    .custom-controls { width: 100%; border-left: none; border-top: 1px solid var(--gray-light); padding: 20px; }
+    
+    /* Căn chỉnh lại Cart & Checkout */
+    .cart-page-wrapper { flex-direction: column; gap: 30px; margin: 30px auto; }
+    .cart-summary-box { position: static; }
+    
+    /* Tài khoản */
+    .account-box { margin: 40px auto; width: 90%; padding: 20px; }
 }
