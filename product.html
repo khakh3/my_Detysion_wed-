@@ -78,5 +78,15 @@
 
     <footer><p>&copy; 2026 DETYSON. Minimalist Vietnamese Fashion.</p></footer>
     <script src="js/script.js"></script>
+    <script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburgerBtn.addEventListener('click', () => {
+        // Bật/tắt class 'active' để hiện menu và tạo hiệu ứng dấu X
+        hamburgerBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
